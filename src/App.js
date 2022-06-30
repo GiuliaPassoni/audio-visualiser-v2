@@ -1,24 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+
+import React, {useState} from "react";
+import {Route, Routes} from "react-router-dom";
+import {CssBaseline, ThemeProvider, createTheme} from "@mui/material";
+
+//components
+import Navbar from "./pages/Navbar";
+import Footer from "./pages/Footer";
+import Visualiser from "./pages/Visualiser";
+import Login from "./pages/Login";
+import About from "./pages/About";
+
+const getDesignTokens = (mode) => ({
+    palette: {
+        mode,
+        ...(mode === 'light'
+            ? {
+                // palette values for light mode
+                // primary: amber, //for button background
+                // styleOverrides:{
+                //     background: {
+                //         default: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
+                //     }
+                // }
+            }
+            : {
+                // palette values for dark mode
+                // primary: deepOrange,
+                // background: {
+                //     default: "blue"
+                // }
+            }),
+    },
+});
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    const [mode, setMode] = useState('light');
+    // Update the theme only if the mode changes
+    const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+
+
+    return (
+    <ThemeProvider theme={theme}>
+      <header>
+        <Navbar mode={mode} setMode={setMode}/>
       </header>
-    </div>
+      <main>
+          <Routes>
+              {/*<Route path='/' element={<Homepage/>} />*/}
+              <Route path='/' element={<Login/>} />
+              <Route path='/visualiser' element={<Visualiser/>} />
+              <Route path='/about' element={<About/>} />
+          </Routes>
+      </main>
+      <Footer/>
+    </ThemeProvider>
   );
 }
 
