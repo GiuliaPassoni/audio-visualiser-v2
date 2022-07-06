@@ -42,18 +42,20 @@ function App() {
 
     return (
     <ThemeProvider theme={theme}>
-      <header>
-        <Navbar mode={mode} setMode={setMode}/>
-      </header>
-      <main>
-          <Routes>
-              {/*<Route path='/' element={<Homepage/>} />*/}
-              <Route path='/' element={<Login/>} />
-              <Route path='/visualiser' element={<Visualiser/>} />
-              <Route path='/about' element={<About/>} />
-          </Routes>
-      </main>
-      <Footer/>
+        <CssBaseline>
+          <header>
+            <Navbar mode={mode} setMode={setMode}/>
+          </header>
+          <main>
+              <Routes>
+                  {/*<Route path='/' element={<Homepage/>} />*/}
+                  <Route path='/' element={<Login/>} />
+                  <Route path='/visualiser' element={<Visualiser mode={mode}/>} />
+                  <Route path='/about' element={<About/>} />
+              </Routes>
+          </main>
+          <Footer/>
+        </CssBaseline>
     </ThemeProvider>
   );
 }
