@@ -3,7 +3,7 @@ import { getAuth} from 'firebase/auth';
 // import { getAnalytics } from "firebase/analytics";
 const firebaseConfig = {
     apiKey: "AIzaSyAk2y1qMmM6a73Vwn9jt9j2u2JC4xMLOMo",
-    authDomain: "audio-visualiser-5cb73.firebaseapp.com",
+    authDomain: "gp22-audio-visualiser.surge.sh",
     projectId: "audio-visualiser-5cb73",
     storageBucket: "audio-visualiser-5cb73.appspot.com",
     messagingSenderId: "360615209654",
