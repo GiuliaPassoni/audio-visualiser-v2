@@ -3,6 +3,7 @@ import React, {useRef, useEffect, useState, useCallback} from 'react'
 import {Container, Button} from "@mui/material";
 import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import style from './visualiser.module.scss';
 
 const Canvas = (props) => {
 
@@ -88,12 +89,13 @@ const Canvas = (props) => {
     }
 
     return(
-        <Container style={{width: "90%", height: "90%", textAlign:'center'}}>
-        <canvas style={{width: "100%", height: "100%", borderRadius:"5px"}} ref={canvasRef} {...props}/>
+        <Container className={style.canvasCont} style={{width: "90%", textAlign:'center'}}>
+        <canvas style={{width: "90%", height: "80%", m:'auto', borderRadius:"5px"}} ref={canvasRef} {...props}/>
             {/*<p>{soundFile}</p>*/}
-        <Button variant='contained' onClick={playMusic} size='large' sx={{m:'1rem'}}>{isPlaying ? <PauseCircleOutlineIcon/> : <PlayCircleOutlineIcon/>} </Button>
+        <Button variant='contained' onClick={playMusic} size='large' sx={{m:'0 1rem', height:'15%'}} >{isPlaying ? <PauseCircleOutlineIcon/> : <PlayCircleOutlineIcon/>} </Button>
     </Container>
     )
 }
 
-export default Canvas
+export default Canvas;
+

@@ -1,6 +1,6 @@
-// import './App.css';
+import './App.css';
 
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Route, Routes} from "react-router-dom";
 import {CssBaseline, ThemeProvider, createTheme} from "@mui/material";
 
@@ -37,7 +37,19 @@ const getDesignTokens = (mode) => ({
 function App() {
     const [mode, setMode] = useState('light');
     // Update the theme only if the mode changes
-    const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+    const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode])
+    useEffect(()=>{
+        const m = localStorage.getItem('mode');
+        if (m !== undefined) {
+            setMode(m)
+        }
+    },[])
+
+    useEffect(()=>{
+        localStorage.setItem('mode', mode)
+    },[mode])
+
+
 
 
     return (
