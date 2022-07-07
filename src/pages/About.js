@@ -1,8 +1,8 @@
-import {Container, Typography, Card, CardMedia} from "@mui/material";
+import {Container, Typography} from "@mui/material";
 
 export default function About(){
     return(
-        <Container style={{width:"80%", margin:'100px auto', textAlign: 'center'}}>
+        <Container style={{width:"80%", margin:'1rem auto', marginTop:'100px', textAlign: 'center'}}>
             <Typography
                 variant='h2'
                 sx={{flexGrow:1}}
@@ -23,7 +23,7 @@ export default function About(){
             {/*    width="480" height="480"*/}
             {/*    />*/}
             {/*</Card>*/}
-            <iframe src="https://giphy.com/embed/osjgQPWRx3cac" width="240" height="240" style={{border:'.5px solid black', borderRadius:5}}
+            <iframe title='pusheen' src="https://giphy.com/embed/osjgQPWRx3cac" width="240" height="240" style={{border:'.5px solid black', borderRadius:5}}
                     className="giphy-embed" allowFullScreen></iframe>
             {/*<p><a href="https://giphy.com/gifs/sticker-osjgQPWRx3cac">via GIPHY</a></p>*/}
         </Container>

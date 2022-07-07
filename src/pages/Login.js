@@ -1,9 +1,9 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 
-import { GoogleAuthProvider, signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } from "firebase/auth";
-import { auth } from './../firebase-config';
+import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
+import { auth } from '../firebase-config';
 
-import {Container, Typography, Card, Avatar, TextField, Button} from "@mui/material";
+import {Container, Typography, Card, Avatar, Button} from "@mui/material";
 import FaceIcon from '@mui/icons-material/Face';
 
 export default function Login(){

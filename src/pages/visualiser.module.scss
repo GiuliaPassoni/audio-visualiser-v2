@@ -1,0 +1,31 @@
+//for media query
+.visCont{
+  width:80%;
+  margin:auto;
+  margin-top:100px;
+  text-align:center
+}
+
+.footer{
+  width:100%;
+  text-align: center;
+}
+
+@media(max-width: 500px){
+  .visCont{
+    height: 82vh;
+  }
+  .canvasCont{
+    height:40vh;
+  }
+  .footer{
+
+  }
+}
+
+//@media(min-width: 500px){
+//  .footer{
+//    margin-bottom: 0;
+//    margin-top:5vh;
+//  }
+//}
