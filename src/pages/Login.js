@@ -59,7 +59,7 @@ export default function Login(){
 
 
     return(
-        <Container color='primary' style={{margin:'100px auto', textAlign: 'center'}}>
+        <Container style={{margin:'100px auto', textAlign: 'center'}}>
             <Typography
                 variant='h2'
                 sx={{flexGrow:1}}
