@@ -6,7 +6,7 @@ import sf2 from './../audio/track2.mp3';
 import sf3 from './../audio/track3.mp3';
 // import {soundFile as sf2} from './../audio/track2.mp3';
 import {Container, Grid, Button, Typography} from "@mui/material";
-import Canvas from "./Canvas.js";
+import CanvasComp from "./Canvas.js";
 import {draw} from "./drawFunc.js";
 import style from './visualiser.module.scss';
 
@@ -25,31 +25,31 @@ export default function Visualiser({mode}){
         <Container className={style.visCont}>
             <Typography
                 variant='h2'
-                sx={{flexGrow:1}}
+                sx={{flexGrow:1, mb:'1rem'}}
                 aria-label='About'>
                 Visualiser
             </Typography>
-                <Grid container spacing={2}
+                <Grid container spacing={0} direction="row" alignItems="center" justifyContent="center" sx={{width:.9,m:'auto', mb:'1rem'}}
                       // style={{width:"90%", margin:"2rem auto"                }}
-                      style={{width:"90%" , margin:'auto', marginBottom:'1rem'}}
+                      // style={{width:"90%" , margin:'auto', marginBottom:'1rem'}}
                 >
                     <Grid item xs={6} md={3}>
-                        <Button variant="outlined" value={0} onClick={changeSong}>Audio 1</Button>
+                        <Button variant="outlined" value={0} onClick={changeSong} sx={{m:'.5rem'}}>Audio 1</Button>
                     </Grid>
                     <Grid item xs={6} md={3}>
-                        <Button variant="outlined" value={1} onClick={changeSong}>Audio 2</Button>
+                        <Button variant="outlined" value={1} onClick={changeSong} sx={{m:'.5rem'}}>Audio 2</Button>
                     </Grid>
                     <Grid item xs={6} md={3}>
-                        <Button variant="outlined" value={2} onClick={changeSong}>Audio 3</Button>
+                        <Button variant="outlined" value={2} onClick={changeSong} sx={{m:'.5rem'}}>Audio 3</Button>
                     </Grid>
                     <Grid item xs={6} md={3}>
-                        <Button variant="outlined" value={3} onClick={changeSong}>Audio 4</Button>
+                        <Button variant="outlined" value={3} onClick={changeSong} sx={{m:'.5rem'}}>Audio 4</Button>
                     </Grid>
                 </Grid>
                 {/*<canvas style={{border:'1px solid red', display:'block'}}*/}
                 {/*/>*/}
                 {/*<Button variant='contained' onClick={togglePlayPause()}>{songIsPlaying ? 'Pause' : 'Play'}</Button>*/}
-                <Canvas mode={mode} draw={draw} soundfile={tune}/>
+                <CanvasComp mode={mode} drawfunc={draw} soundfile={tune}/>
 
         </Container>
     )

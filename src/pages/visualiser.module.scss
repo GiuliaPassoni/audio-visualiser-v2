@@ -9,11 +9,12 @@
 .footer{
   width:100%;
   text-align: center;
+  p{bottom:0;}
 }
 
 @media(max-width: 500px){
   .visCont{
-    height: 82vh;
+    height: 85vh;
   }
   .canvasCont{
     height:40vh;

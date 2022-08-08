@@ -5,10 +5,10 @@ import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import style from './visualiser.module.scss';
 
-const Canvas = (props) => {
+const CanvasComp = (props) => {
 
     const canvasRef = useRef(null) //ref for the canvas
-    const { mode, draw, soundfile, ...rest } = props //unpacking: ...rest refers to all other props that we don't care too much about
+    const { mode, drawfunc, soundfile, ...rest } = props //unpacking: ...rest refers to all other props that we don't care too much about
     const [song, setSong] = useState(); //to set the song to the mp3 file
     const [audioCtx, setAudioCtx] = useState(); //to set the song to the mp3 file
     const [isPlaying, setIsPlaying] = useState(false); //to toggle play and pause
@@ -71,7 +71,7 @@ const Canvas = (props) => {
             const bufferLength = analyserRef.current.frequencyBinCount;
             const amplitudeArray = new Uint8Array(bufferLength)
             analyserRef.current.getByteFrequencyData(amplitudeArray)
-            draw(context, frameCount, amplitudeArray, modeRef) //draw is a prop
+            drawfunc(context, frameCount, amplitudeArray, modeRef) //draw is a prop
             animationFrameId = window.requestAnimationFrame(render)
         }
 
@@ -80,7 +80,7 @@ const Canvas = (props) => {
         return () => { //cleanup function: gets rid of animation when component unmounts
             window.cancelAnimationFrame(animationFrameId)
         }
-    }, [draw]) //this dependency + the internal call within render() creates the infinite loop that allows infinite rendering of the animation
+    }, [drawfunc]) //this dependency + the internal call within render() creates the infinite loop that allows infinite rendering of the animation
 
     //for the button
     const playMusic = () => {
@@ -90,12 +90,12 @@ const Canvas = (props) => {
 
     return(
         <Container className={style.canvasCont} style={{width: "90%", textAlign:'center'}}>
-        <canvas style={{width: "90%", height: "80%", m:'auto', borderRadius:"5px"}} ref={canvasRef} {...props}/>
+        <canvas style={{width: "90%", height: "80%", m:'auto', borderRadius:"5px"}} ref={canvasRef}/>
             {/*<p>{soundFile}</p>*/}
         <Button variant='contained' onClick={playMusic} size='large' sx={{m:'0 1rem', height:'15%'}} >{isPlaying ? <PauseCircleOutlineIcon/> : <PlayCircleOutlineIcon/>} </Button>
     </Container>
     )
 }
 
-export default Canvas;
+export default CanvasComp;
 

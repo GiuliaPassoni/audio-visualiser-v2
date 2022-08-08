@@ -43,16 +43,16 @@ export default function Navbar({mode, setMode}){
                         sx={{flexGrow:1}}
                         aria-label='Music visualiser'
                     >
-                        <Link to='/visualiser' style={{textDecoration:'none', color:'inherit'}}>Music Visualiser</Link>
+                        <Link to='/' style={{textDecoration:'none', color:'inherit'}}>Music Visualiser</Link>
                     </Typography>
                     <Hidden smDown>
                         <Stack direction="row" spacing={2}>
                             <Button variant='text'>
-                                <Link to='/' style={{textDecoration:'none', color:'white'}}>
+                                <Link to='/login' style={{textDecoration:'none', color:'white'}}>
                                     {user === null ? "My Account" : `Hello, ${user.displayName.split(' ')[0]}`}
                                 </Link>
                             </Button>
-                            <Button variant='text'><Link to='/visualiser' style={{textDecoration:'none', color:'white'}}>Visualiser</Link></Button>
+                            <Button variant='text'><Link to='/' style={{textDecoration:'none', color:'white'}}>Visualiser</Link></Button>
                             <Button variant='text'><Link to='/about' style={{textDecoration:'none', color:'white'}}>About</Link></Button>
                             <IconButton sx={{ ml: 1 }} onClick={handleModeChange} color="default">
                                 {mode === 'dark' ? <Brightness3Icon/>:<LightModeIcon/>}
@@ -102,12 +102,12 @@ export default function Navbar({mode, setMode}){
                 </Container>
                 <Divider/>
                 <Button variant='text' onClick={() => setOpen(false)}>
-                    <Link to='/' style={{textDecoration:'none', color: 'gray'}}>
+                    <Link to='/login' style={{textDecoration:'none', color:'white'}}>
                         {user === null ? "My Account" : `Hello, ${user.displayName.split(' ')[0]}`}
                     </Link>
                 </Button>
                 <Button variant='text' onClick={() => setOpen(false)}>
-                    <Link to='/visualiser' style={{textDecoration:'none', color:'gray'}}>
+                    <Link to='/' style={{textDecoration:'none', color:'gray'}}>
                         Visualiser
                     </Link>
                 </Button>

@@ -39,9 +39,14 @@ function App() {
     // Update the theme only if the mode changes
     const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode])
     useEffect(()=>{
-        const m = localStorage.getItem('mode');
-        if (m !== undefined) {
-            setMode(m)
+        try {
+            const m = localStorage.getItem('mode');
+            if (m !== undefined && m !== null) {
+                setMode(m)
+            }
+        }
+        catch (e) {
+
         }
     },[])
 
@@ -61,8 +66,8 @@ function App() {
           <main>
               <Routes>
                   {/*<Route path='/' element={<Homepage/>} />*/}
-                  <Route path='/' element={<Login/>} />
-                  <Route path='/visualiser' element={<Visualiser mode={mode}/>} />
+                  <Route path='/login' element={<Login/>} />
+                  <Route path='/' element={<Visualiser mode={mode}/>} />
                   <Route path='/about' element={<About/>} />
               </Routes>
           </main>

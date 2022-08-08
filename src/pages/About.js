@@ -13,8 +13,8 @@ export default function About(){
             variant='h6'
             sx={{width:.7, m:'2rem auto', lineHeight:'2rem', fontSize:'120%', textAlign:'justify', fontWeight:'light'}}
                 >
-                This music visualiser website is an important milestone in my perilious journey on the long and winding road to learn Front End programming.
-                Credits for the immense help and patience go to my master Mihai (did you read <em>Miyagi</em> instead? That may be no coincidence...).
+                This music visualiser website is an important milestone in my perilious journey on the long and winding road to learn Front End development.
+                Credits for the immense help and patience go to my programming master, Mihai (did you read <em>Miyagi</em> instead? That may be no coincidence...).
             </Typography>
             {/*<Card>*/}
             {/*    <CardMedia*/}
