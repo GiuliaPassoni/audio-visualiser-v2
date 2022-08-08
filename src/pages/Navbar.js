@@ -102,7 +102,7 @@ export default function Navbar({mode, setMode}){
                 </Container>
                 <Divider/>
                 <Button variant='text' onClick={() => setOpen(false)}>
-                    <Link to='/login' style={{textDecoration:'none', color:'white'}}>
+                    <Link to='/login' style={{textDecoration:'none', color:'gray'}}>
                         {user === null ? "My Account" : `Hello, ${user.displayName.split(' ')[0]}`}
                     </Link>
                 </Button>
